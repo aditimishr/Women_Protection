@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "994253377133",
+    "firebase_url": "https://womenprotection-a4376.firebaseio.com",
+    "project_id": "womenprotection-a4376",
+    "storage_bucket": "womenprotection-a4376.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:994253377133:android:9cc554764760853e",
+        "android_client_info": {
+          "package_name": "tech.com.women_protection"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "994253377133-kg3vp6egq2edj3h8u2l30b5b66tta67i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tech.com.women_protection",
+            "certificate_hash": "bdbbb481189304e35c282a83946959ba5ff245f8"
+          }
+        },
+        {
+          "client_id": "994253377133-683tk2us9o67g18e6k4nt03haravq32g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC20RBg-w_VXlb08KX3VYVYsyG8fTKE49A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "994253377133-683tk2us9o67g18e6k4nt03haravq32g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

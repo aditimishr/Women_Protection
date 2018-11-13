@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="tech.com.women_protection">
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/launcher_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/launcher_icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <uses-library android:name="com.google.android.maps" />
+
+        <activity
+            android:name=".Activities.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".Activities.MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity
+            android:name=".Activities.LoginActivity"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+        <receiver android:name=".ReceiveBroadcast">
+            <intent-filter>
+                <action android:name="com.example.broadcast" />
+            </intent-filter>
+        </receiver>
+        -->
+        <!--
+        <receiver
+            android:name=".Receiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.test.intents.alert" />
+            </intent-filter>
+        </receiver>
+        -->
+
+        <activity android:name=".Activities.MapActivity" />
+        <activity android:name=".Activities.ReportComplaintActivity" />
+
+        <service
+            android:name=".SensorService"
+            android:enabled="true" />
+
+        <receiver
+            android:name=".SensorRestarterBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:label="RestartServiceWhenStopped">
+            <intent-filter>
+                <action android:name="com.tech.RestartSensor" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".Activities.AdapterActivity" />
+        <activity
+            android:name=".Activities.Maps_for_unsafe_location"
+            android:label="@string/title_activity_maps_for_unsafe_location"></activity>
+    </application>
+
+</manifest>

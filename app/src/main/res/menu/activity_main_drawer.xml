@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:id="@+id/group_admin"
+        android:checkableBehavior="single"
+        android:visible="false">
+        <item
+            android:id="@+id/emergency_requests"
+            android:title="Emergency Requests" />
+        <item
+            android:id="@+id/notifications"
+            android:title="Notifications" />
+        <item
+            android:id="@+id/pending_requests"
+            android:title="Pending Applications" />
+
+        <item
+            android:id="@+id/show_unsafe_locations"
+            android:title="Show Unsafe Locations" />
+    </group>
+    <group
+        android:id="@+id/group_victim"
+        android:checkableBehavior="single"
+        android:visible="false">
+        <item
+            android:id="@+id/emergency"
+            android:title="Notify Emergency" />
+        <item
+            android:id="@+id/danger"
+            android:title="Call Emergency" />
+        <item
+            android:id="@+id/drive_safe_location"
+            android:title="Drive to Safe Location" />
+        <item
+            android:id="@+id/mark_unsafe_by_victim"
+            android:title="Mark this Location as Unsafe" />
+        <item
+            android:id="@+id/generatenewrequests"
+            android:title="Report Complaint" />
+        <item
+            android:id="@+id/trackstatus"
+            android:title="Track Complaint Status" />
+
+    </group>
+    <group
+        android:id="@+id/group_witness"
+        android:checkableBehavior="single"
+        android:visible="false">
+        <item
+            android:id="@+id/emergency_by_witness"
+            android:title="Emergency" />
+        <item
+            android:id="@+id/drive_safe_location_by_witness"
+            android:title="Drive to Safe Location" />
+        <item
+            android:id="@+id/mark_unsafe_by_witness"
+            android:title="Mark this Location as Unsafe" />
+        <item
+            android:id="@+id/crime_information"
+            android:title="Inform Details about crime" />
+
+    </group>
+
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/witness"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Back to Profile"
+                android:visible="false" />
+            <item
+                android:id="@+id/user"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Witness a crime - Switch User"
+                android:visible="false" />
+            <item
+                android:id="@+id/logout"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Logout" />
+        </menu>
+    </item>
+
+</menu>
