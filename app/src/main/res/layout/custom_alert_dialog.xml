@@ -17,6 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:gravity="center"
+        android:layout_gravity="center"
         android:text="Are you a Witness?"
         android:textColor="@color/colorAccent"
         android:textSize="20dp" />

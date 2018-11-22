@@ -6,13 +6,60 @@ public class User {
     private String user_id;
     private String name;
     private String email_id;
-    private int Phone_Number;
+    private String Phone_Number;
     private String Password;
-    private Date register_date;
+    private String register_date;
     private Boolean user_isActive;
-    private Boolean person_isActive;
-    private int device_id;
+    private String device_id;
     private String user_type;
+    private String identity;
+    private Boolean person_isActive;
+
+    public String getDevice_id() {
+        return device_id;
+    }
+
+    public void setDevice_id(String device_id) {
+        this.device_id = device_id;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    private String gender;
+
+
+    public String getRegister_date() {
+        return register_date;
+    }
+
+    public void setRegister_date(String register_date) {
+        this.register_date = register_date;
+    }
+
+
+    public String getPhone_Number() {
+        return Phone_Number;
+    }
+
+    public void setPhone_Number(String phone_Number) {
+        Phone_Number = phone_Number;
+    }
+
+
+    public String getIdentity() {
+        return identity;
+    }
+
+    public void setIdentity(String identity) {
+        this.identity = identity;
+
+    }
 
     public User() {
     }
@@ -21,12 +68,9 @@ public class User {
         this.user_id = user_id;
         this.name = name;
         this.email_id = email_id;
-        this.Phone_Number = Phone_Number;
         this.Password = Password;
-        this.register_date = register_date;
         this.user_isActive = user_isActive;
         this.person_isActive = person_isActive;
-        this.device_id = device_id;
         this.user_type = user_type;
     }
 
@@ -71,22 +115,6 @@ public class User {
         this.user_type = user_type;
     }
 
-    public int getPhone_Number() {
-        return Phone_Number;
-    }
-
-    public void setPhone_Number(int phone_Number) {
-        Phone_Number = phone_Number;
-    }
-
-    public Date getRegister_date() {
-        return register_date;
-    }
-
-    public void setRegister_date(Date register_date) {
-        this.register_date = register_date;
-    }
-
     public Boolean getUser_isActive() {
         return user_isActive;
     }
@@ -101,13 +129,5 @@ public class User {
 
     public void setPerson_isActive(Boolean person_isActive) {
         this.person_isActive = person_isActive;
-    }
-
-    public int getDevice_id() {
-        return device_id;
-    }
-
-    public void setDevice_id(int device_id) {
-        this.device_id = device_id;
     }
 }

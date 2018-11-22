@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -41,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
     private int ACCESS_LOCATION_PERMISSION = 1;
     EditText editText_Email, editText_Password;
     Button button_Login;
+    TextView button_signup;
     String email = "", password = "";
     DatabaseReference databaseUser, database_complaints, database_location;
     User user_current;
@@ -66,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
         editText_Email = (EditText) findViewById(R.id.editText_Email);
         editText_Password = (EditText) findViewById(R.id.editText_Password);
         button_Login = (Button) findViewById(R.id.button_Login);
+        button_signup=(TextView) findViewById(R.id.button_signup);
         radiogroup_UserType = (RadioGroup) findViewById(R.id.radiogroup_UserType);
         databaseUser = FirebaseDatabase.getInstance().getReference("User");
         database_location = FirebaseDatabase.getInstance().getReference("Location");
@@ -118,6 +121,18 @@ public class LoginActivity extends AppCompatActivity {
                 user_data.setName("Aditi");
                 user.child(id).setValue(user_data);*/
 
+        });
+
+        button_signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("User_Type", User_Type);
+                intent.putExtra("User_Name", database_user_name);
+                startActivity(intent);
+            }
         });
     }
 
@@ -193,6 +208,8 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Please Enter Valid Email and Password for " + User_Type + " Login", Toast.LENGTH_LONG).show();
             }
         }
+
+
 
     }
 

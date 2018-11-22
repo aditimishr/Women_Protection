@@ -19,20 +19,35 @@
         android:orientation="vertical"
         android:paddingTop="40dp">
 
-        <EditText
-            android:id="@+id/editText_Email"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress" />
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp">
 
-        <EditText
-            android:id="@+id/editText_Password"
+            <EditText
+                android:id="@+id/editText_Email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:textColorHint="@color/design_default_color_primary" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword" />
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp">
 
+            <EditText
+                android:id="@+id/editText_Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColorHint="@color/design_default_color_primary" />
+        </android.support.design.widget.TextInputLayout>
 
         <RadioGroup
             android:id="@+id/radiogroup_UserType"
@@ -47,75 +62,93 @@
                 android:layout_height="wrap_content"
                 android:paddingRight="5dp"
                 android:text="User Type : "
-                android:textColor="@color/black" />
+                android:textColor="@color/design_default_color_primary" />
 
             <RadioButton
                 android:id="@+id/radiobutton_Admin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Admin" />
+                android:text="Admin"
+                android:textColor="@color/design_default_color_primary" />
 
             <RadioButton
                 android:id="@+id/radiobutton_Victim"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Public" />
+                android:text="Public"
+                android:textColor="@color/design_default_color_primary" />
         </RadioGroup>
 
-        <Button
-            android:id="@+id/button_Login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorPrimary"
-            android:text="Login" />
 
-        <LinearLayout
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/button_Login"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="24dp"
+            android:padding="12dp"
+            android:text="Login"
+            android:textColor="@color/design_default_color_primary" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/button_clickhere_login"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/red"
+            android:padding="15dp"
+            android:text="Emergency"
+            android:textColor="@color/white" />
+
+        <!--<LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:orientation="horizontal"
-            android:background="@color/colorPrimary">
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textView_emergency"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:gravity="center"
                 android:text="IN CASE OF IMMEDIATE HELP"
-                android:layout_marginLeft="20dp"
                 android:textColor="@color/white"
                 android:textSize="12dp" />
+
             <TextView
                 android:id="@+id/textView_arrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="---->"
                 android:layout_marginLeft="10dp"
+                android:text="&#45;&#45;&ndash;&gt;"
                 android:textColor="@color/white"
                 android:textSize="32dp" />
+
             <Button
                 android:id="@+id/button_clickhere_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@color/red"
                 android:gravity="center"
                 android:text="Emergency"
-                android:layout_marginLeft="10dp"
                 android:textColor="@color/white"
-                android:background="@color/red"
-                android:textSize="15dp"/>
-        </LinearLayout>
+                android:textSize="15dp" />
+        </LinearLayout>-->
 
-        <Button
-            android:id="@+id/textView_signup"
+        <TextView
+            android:id="@+id/button_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="150dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="80dp"
+            android:background="@color/white"
             android:gravity="center"
-            android:text="Sign Up"
-            android:textColor="@color/black"
+            android:text="Not account yet? Create one"
+            android:textColor="@color/design_default_color_primary"
             android:textSize="20dp" />
     </LinearLayout>
 

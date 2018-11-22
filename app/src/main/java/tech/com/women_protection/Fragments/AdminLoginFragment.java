@@ -1,24 +1,17 @@
 package tech.com.women_protection.Fragments;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,7 +25,6 @@ import java.util.List;
 
 import tech.com.women_protection.Activities.AdapterActivity;
 import tech.com.women_protection.Activities.Maps_for_unsafe_location;
-import tech.com.women_protection.ListAdapter;
 import tech.com.women_protection.R;
 import tech.com.women_protection.classes.Complaint;
 import tech.com.women_protection.classes.LocationClass;

@@ -33,8 +33,8 @@ import java.util.List;
 
 import tech.com.women_protection.Fragments.VictimLoginFragment;
 import tech.com.women_protection.Fragments.WitnessLoginFragment;
-import tech.com.women_protection.ListAdapter;
-import tech.com.women_protection.ListLocationNotificationAdapter;
+import tech.com.women_protection.Adapter.ListAdapter;
+import tech.com.women_protection.Adapter.ListLocationNotificationAdapter;
 import tech.com.women_protection.LocationListener.GpsTracker;
 import tech.com.women_protection.R;
 import tech.com.women_protection.classes.Complaint;

@@ -1,4 +1,4 @@
-package tech.com.women_protection;
+package tech.com.women_protection.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import tech.com.women_protection.Activities.MapsActivity;
+import tech.com.women_protection.R;
 import tech.com.women_protection.classes.Complaint;
 import tech.com.women_protection.classes.LocationClass;
 

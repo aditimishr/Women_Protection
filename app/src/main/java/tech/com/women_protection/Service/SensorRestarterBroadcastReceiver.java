@@ -1,4 +1,4 @@
-package tech.com.women_protection;
+package tech.com.women_protection.Service;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

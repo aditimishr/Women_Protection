@@ -1,20 +1,14 @@
 package tech.com.women_protection.Activities;
 
 import android.app.ActivityManager;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.location.Location;
-import android.media.RingtoneManager;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.NotificationCompat;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -35,16 +29,13 @@ import com.google.firebase.database.ValueEventListener;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import tech.com.women_protection.Fragments.AdminLoginFragment;
 import tech.com.women_protection.LocationListener.GpsTracker;
 import tech.com.women_protection.R;
 import tech.com.women_protection.Fragments.VictimLoginFragment;
 import tech.com.women_protection.Fragments.WitnessLoginFragment;
-import tech.com.women_protection.SensorService;
-import tech.com.women_protection.classes.Complaint;
+import tech.com.women_protection.Service.SensorService;
 import tech.com.women_protection.classes.LocationClass;
 
 public class MainActivity extends AppCompatActivity

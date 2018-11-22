@@ -1,4 +1,4 @@
-package tech.com.women_protection;
+package tech.com.women_protection.Service;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;

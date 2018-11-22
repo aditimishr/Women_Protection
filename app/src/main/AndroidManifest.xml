@@ -14,6 +14,9 @@
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.Manifest.permission.READ_PHONE_STATE" />
+
 
     <application
         android:allowBackup="true"
@@ -52,34 +55,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!--
-        <receiver android:name=".ReceiveBroadcast">
-            <intent-filter>
-                <action android:name="com.example.broadcast" />
-            </intent-filter>
-        </receiver>
-        -->
-        <!--
-        <receiver
-            android:name=".Receiver"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.test.intents.alert" />
-            </intent-filter>
-        </receiver>
-        -->
-
         <activity android:name=".Activities.MapActivity" />
         <activity android:name=".Activities.ReportComplaintActivity" />
 
         <service
-            android:name=".SensorService"
+            android:name=".Service.SensorService"
             android:enabled="true" />
 
         <receiver
-            android:name=".SensorRestarterBroadcastReceiver"
+            android:name=".Service.SensorRestarterBroadcastReceiver"
             android:enabled="true"
             android:exported="true"
             android:label="RestartServiceWhenStopped">
@@ -91,7 +75,8 @@
         <activity android:name=".Activities.AdapterActivity" />
         <activity
             android:name=".Activities.Maps_for_unsafe_location"
-            android:label="@string/title_activity_maps_for_unsafe_location"></activity>
+            android:label="@string/title_activity_maps_for_unsafe_location" />
+        <activity android:name=".Activities.SignUpActivity"></activity>
     </application>
 
 </manifest>
