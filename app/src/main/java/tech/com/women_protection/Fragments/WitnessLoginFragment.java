@@ -46,8 +46,8 @@ public class WitnessLoginFragment extends Fragment {
         button_mark_unsafe_location = (Button) view.findViewById(R.id.button_mark_unsafe_location);
         Bundle bundle = this.getArguments();
         if (bundle != null) {
-            User_Type = bundle.getString("User_Type");
-            User_Name = bundle.getString("User_Name");
+            User_Type = bundle.getString("user_type");
+            User_Name = bundle.getString("user_name");
         }
         database_complaints = FirebaseDatabase.getInstance().getReference("Complaints");
         database_location = FirebaseDatabase.getInstance().getReference("Location");

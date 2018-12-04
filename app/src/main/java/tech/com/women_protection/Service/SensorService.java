@@ -116,8 +116,8 @@ public class SensorService extends Service {
                     }
                 });
                 SharedPreferences preference = getSharedPreferences("Login", MODE_PRIVATE);
-                shared_user_type = preference.getString("User_Type", "");//"No name defined" is the default value.
-                shared_user_name = preference.getString("User_Name", "");
+                shared_user_type = preference.getString("user_type", "");//"No name defined" is the default value.
+                shared_user_name = preference.getString("user_name", "");
                 //Toast.makeText(getApplicationContext(), "Hello", Toast.LENGTH_LONG).show();
                 if (shared_user_type != null && !shared_user_type.equalsIgnoreCase("")) {
                     getAllDatabaseValues();

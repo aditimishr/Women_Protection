@@ -49,8 +49,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         bundle = getIntent().getExtras();
         Intent intent = getIntent();
         SharedPreferences preference_user_type = getSharedPreferences("Login", MODE_PRIVATE);
-        user_type = preference_user_type.getString("User_Type", "");//"No name defined" is the default value.
-        user_name = preference_user_type.getString("User_Name", "");
+        user_type = preference_user_type.getString("user_type", "");//"No name defined" is the default value.
+        user_name = preference_user_type.getString("user_name", "");
         SharedPreferences preference = getSharedPreferences("Fragment", MODE_PRIVATE);
         String shared_fragment = preference.getString("Fragment", "");
         if (bundle != null) {
@@ -116,8 +116,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        intent.putExtra("User_Name", user_name);
-        intent.putExtra("User_Type", user_type);
+        intent.putExtra("user_name", user_name);
+        intent.putExtra("user_type", user_type);
         startActivity(intent);
         super.onBackPressed();
     }

@@ -73,8 +73,8 @@ public class LoginActivity extends AppCompatActivity {
         databaseUser = FirebaseDatabase.getInstance().getReference("User");
         database_location = FirebaseDatabase.getInstance().getReference("Location");
         SharedPreferences preference = getSharedPreferences("Login", MODE_PRIVATE);
-        String shared_user_type = preference.getString("User_Type", "");//"No name defined" is the default value.
-        String shared_user_name = preference.getString("User_Name", "");
+        String shared_user_type = preference.getString("user_type", "");//"No name defined" is the default value.
+        String shared_user_name = preference.getString("user_name", "");
         if (shared_user_name != null && !shared_user_name.equalsIgnoreCase("") && shared_user_type != null && !shared_user_type.equalsIgnoreCase("")) {
             gotoMainActivity(shared_user_name, shared_user_type);
         }
@@ -129,8 +129,8 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("User_Type", User_Type);
-                intent.putExtra("User_Name", database_user_name);
+                intent.putExtra("user_type", User_Type);
+                intent.putExtra("user_name", database_user_name);
                 startActivity(intent);
             }
         });
@@ -179,8 +179,8 @@ public class LoginActivity extends AppCompatActivity {
                                     if ((User_Type.equalsIgnoreCase("Admin") && database_user_type.equalsIgnoreCase(User_Type)) || User_Type.equalsIgnoreCase("User") || User_Type.equalsIgnoreCase("Witness")) {
                                         SharedPreferences preference = getSharedPreferences("Login", MODE_PRIVATE);
                                         SharedPreferences.Editor editor = preference.edit();
-                                        editor.putString("User_Type", User_Type);
-                                        editor.putString("User_Name", database_user_name);
+                                        editor.putString("user_type", User_Type);
+                                        editor.putString("user_name", database_user_name);
                                         editor.commit();
                                         enter = 1;
                                         gotoMainActivity(database_user_name, User_Type);
@@ -280,8 +280,8 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra("User_Type", User_Type);
-        intent.putExtra("User_Name", database_user_name);
+        intent.putExtra("user_type", User_Type);
+        intent.putExtra("user_name", database_user_name);
         startActivity(intent);
         Toast.makeText(getApplicationContext(), "You are logged in", Toast.LENGTH_SHORT).show();
     }

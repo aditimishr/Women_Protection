@@ -75,8 +75,8 @@ public class Maps_for_unsafe_location extends FragmentActivity implements OnMapR
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        intent.putExtra("User_Name", user_name);
-        intent.putExtra("User_Type", user_type);
+        intent.putExtra("user_name", user_name);
+        intent.putExtra("user_type", user_type);
         startActivity(intent);
         super.onBackPressed();
     }

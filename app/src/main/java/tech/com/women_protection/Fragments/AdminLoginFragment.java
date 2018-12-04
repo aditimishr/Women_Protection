@@ -53,8 +53,8 @@ public class AdminLoginFragment extends Fragment {
         database_location = FirebaseDatabase.getInstance().getReference("Location");
         ll_main = (LinearLayout) view.findViewById(R.id.ll_main);
         Bundle bundle = this.getArguments();
-        String User_Type = bundle.getString("User_Type");
-        String User_Name = bundle.getString("User_Name");
+        String User_Type = bundle.getString("user_type");
+        String User_Name = bundle.getString("user_name");
         button_emergency_request.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

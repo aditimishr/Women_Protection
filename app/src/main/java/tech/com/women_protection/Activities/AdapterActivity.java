@@ -31,6 +31,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import tech.com.women_protection.Fragments.AdminLoginFragment;
 import tech.com.women_protection.Fragments.VictimLoginFragment;
 import tech.com.women_protection.Fragments.WitnessLoginFragment;
 import tech.com.women_protection.Adapter.ListAdapter;
@@ -104,13 +105,15 @@ public class AdapterActivity extends AppCompatActivity implements NavigationView
         //getEmergencyRequest();
         lst_complaint.clear();
         lst_location.clear();
-        for (DataSnapshot complaint_snapshot : forComplaint_snapshot.getChildren()) {
-            for (DataSnapshot location_snapshot : forLocation_snapshot.getChildren()) {
-                complaint = complaint_snapshot.getValue(Complaint.class);
-                locationClass = location_snapshot.getValue(LocationClass.class);
-                if (complaint.getComplaint_no().equalsIgnoreCase(locationClass.getComplaint_no()) && complaint.getEmergency() == true && complaint.getGrievance_type().equalsIgnoreCase("Emergency")) {
-                    lst_complaint.add(complaint);
-                    lst_location.add(locationClass);
+        if (forLocation_snapshot != null && forComplaint_snapshot != null) {
+            for (DataSnapshot complaint_snapshot : forComplaint_snapshot.getChildren()) {
+                for (DataSnapshot location_snapshot : forLocation_snapshot.getChildren()) {
+                    complaint = complaint_snapshot.getValue(Complaint.class);
+                    locationClass = location_snapshot.getValue(LocationClass.class);
+                    if (complaint.getComplaint_no().equalsIgnoreCase(locationClass.getComplaint_no()) && complaint.getEmergency() == true && complaint.getGrievance_type().equalsIgnoreCase("Emergency")) {
+                        lst_complaint.add(complaint);
+                        lst_location.add(locationClass);
+                    }
                 }
             }
         }
@@ -130,6 +133,62 @@ public class AdapterActivity extends AppCompatActivity implements NavigationView
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         //Fragment fragment = null;
+        if (id == R.id.admin_home) {
+            if (user_type != null && user_type.equalsIgnoreCase("Admin")) {
+                ll_emergency_request.setVisibility(View.GONE);
+                scrollview_notifications.setVisibility(View.GONE);
+                SharedPreferences preference = getSharedPreferences("Fragment", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preference.edit();
+                editor.putString("Fragment", "Admin");
+                editor.commit();
+                navigationView.getMenu().setGroupVisible(R.id.group_admin, true);
+                Fragment fragment = new AdminLoginFragment();
+                fragment.setArguments(bundle);
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.fragment_container_adapter, fragment);
+                ft.commit();
+            }
+        }
+        if (id == R.id.victim_home) {
+            if (user_type != null && user_type.equalsIgnoreCase("User")) {
+                ll_emergency_request.setVisibility(View.GONE);
+                scrollview_notifications.setVisibility(View.GONE);
+                SharedPreferences preference = getSharedPreferences("Fragment", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preference.edit();
+                editor.putString("Fragment", "User");
+                editor.commit();
+                navigationView.getMenu().setGroupVisible(R.id.group_witness, false);
+                navigationView.getMenu().setGroupVisible(R.id.group_victim, true);
+                Menu nav_menu = navigationView.getMenu();
+                nav_menu.findItem(R.id.user).setVisible(true);
+                nav_menu.findItem(R.id.witness).setVisible(false);
+                Fragment fragment = new VictimLoginFragment();
+                fragment.setArguments(bundle);
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.fragment_container_adapter, fragment);
+                ft.commit();
+            }
+        }
+        if (id == R.id.witness_home) {
+            if (user_type != null && user_type.equalsIgnoreCase("Witness")) {
+                ll_emergency_request.setVisibility(View.GONE);
+                scrollview_notifications.setVisibility(View.GONE);
+                SharedPreferences preference = getSharedPreferences("Fragment", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preference.edit();
+                editor.putString("Fragment", "Witness");
+                editor.commit();
+                navigationView.getMenu().setGroupVisible(R.id.group_victim, false);
+                navigationView.getMenu().setGroupVisible(R.id.group_witness, true);
+                Menu nav_menu = navigationView.getMenu();
+                nav_menu.findItem(R.id.user).setVisible(false);
+                nav_menu.findItem(R.id.witness).setVisible(true);
+                Fragment fragment = new WitnessLoginFragment();
+                fragment.setArguments(bundle);
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.fragment_container_adapter, fragment);
+                ft.commit();
+            }
+        }
 
         if (id == R.id.emergency_requests) {
             SharedPreferences preference = getSharedPreferences("Requests", MODE_PRIVATE);
@@ -137,6 +196,8 @@ public class AdapterActivity extends AppCompatActivity implements NavigationView
             editor.putString("Requests", "Emergency");
             editor.commit();
             Intent intent = new Intent(getApplicationContext(), AdapterActivity.class);
+            intent.putExtra("user_name", user_name);
+            intent.putExtra("user_type", user_type);
             startActivity(intent);
         } else if (id == R.id.notifications) {
             SharedPreferences preference = getSharedPreferences("Requests", MODE_PRIVATE);
@@ -144,6 +205,8 @@ public class AdapterActivity extends AppCompatActivity implements NavigationView
             editor.putString("Requests", "Notification");
             editor.commit();
             Intent intent = new Intent(getApplicationContext(), AdapterActivity.class);
+            intent.putExtra("user_name", user_name);
+            intent.putExtra("user_type", user_type);
             startActivity(intent);
         } else if (id == R.id.show_unsafe_locations) {
             getUnsafeLocations();
@@ -166,14 +229,14 @@ public class AdapterActivity extends AppCompatActivity implements NavigationView
             editor.commit();
             SharedPreferences preference1 = getSharedPreferences("Login", MODE_PRIVATE);
             SharedPreferences.Editor editor1 = preference1.edit();
-            editor1.putString("User_Type", "User");
+            editor1.putString("user_type", "User");
             editor1.commit();
             navigationView.getMenu().setGroupVisible(R.id.group_witness, false);
             navigationView.getMenu().setGroupVisible(R.id.group_victim, true);
             Menu nav_menu = navigationView.getMenu();
             nav_menu.findItem(R.id.witness).setVisible(false);
             nav_menu.findItem(R.id.user).setVisible(true);
-            bundle.putString("User_Type", "User");
+            bundle.putString("user_type", "User");
             Fragment fragment = new VictimLoginFragment();
             fragment.setArguments(bundle);
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -186,14 +249,14 @@ public class AdapterActivity extends AppCompatActivity implements NavigationView
             editor.commit();
             SharedPreferences preference1 = getSharedPreferences("Login", MODE_PRIVATE);
             SharedPreferences.Editor editor1 = preference1.edit();
-            editor1.putString("User_Type", "Witness");
+            editor1.putString("user_type", "Witness");
             editor1.commit();
             navigationView.getMenu().setGroupVisible(R.id.group_victim, false);
             navigationView.getMenu().setGroupVisible(R.id.group_witness, true);
             Menu nav_menu = navigationView.getMenu();
             nav_menu.findItem(R.id.witness).setVisible(true);
             nav_menu.findItem(R.id.user).setVisible(false);
-            bundle.putString("User_Type", "Witness");
+            bundle.putString("user_type", "Witness");
             Fragment fragment = new WitnessLoginFragment();
             fragment.setArguments(bundle);
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -202,8 +265,8 @@ public class AdapterActivity extends AppCompatActivity implements NavigationView
         } else if (id == R.id.logout) {
             SharedPreferences preference = getSharedPreferences("Login", MODE_PRIVATE);
             SharedPreferences.Editor editor = preference.edit();
-            editor.putString("User_Type", "");
-            editor.putString("User_Name", "");
+            editor.putString("user_type", "");
+            editor.putString("user_name", "");
             editor.commit();
             SharedPreferences preference1 = getSharedPreferences("Fragment", MODE_PRIVATE);
             SharedPreferences.Editor editor1 = preference1.edit();
@@ -297,7 +360,7 @@ public class AdapterActivity extends AppCompatActivity implements NavigationView
                 }
             }
         } else {
-            Toast.makeText(getApplicationContext(), "Some Error Ocurred", Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), "Some Error Ocurred", Toast.LENGTH_LONG).show();
         }
 
     }

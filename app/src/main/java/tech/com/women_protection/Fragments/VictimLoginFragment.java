@@ -49,8 +49,8 @@ public class VictimLoginFragment extends Fragment {
         button_generate_new_request_user = (Button) view.findViewById(R.id.button_generate_new_request_user);
         button_track_status_user = (Button) view.findViewById(R.id.button_track_status_user);
         Bundle bundle = this.getArguments();
-        User_Type = bundle.getString("User_Type");
-        String User_Name = bundle.getString("User_Name");
+        User_Type = bundle.getString("user_type");
+        String User_Name = bundle.getString("user_name");
         database_complaints = FirebaseDatabase.getInstance().getReference("Complaints");
         database_location = FirebaseDatabase.getInstance().getReference("Location");
         button_clickhere_user.setOnClickListener(new View.OnClickListener() {

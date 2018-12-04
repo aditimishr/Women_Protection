@@ -8,6 +8,9 @@
         android:checkableBehavior="single"
         android:visible="false">
         <item
+            android:id="@+id/admin_home"
+            android:title="Home" />
+        <item
             android:id="@+id/emergency_requests"
             android:title="Emergency Requests" />
         <item
@@ -25,6 +28,9 @@
         android:id="@+id/group_victim"
         android:checkableBehavior="single"
         android:visible="false">
+        <item
+            android:id="@+id/victim_home"
+            android:title="Home" />
         <item
             android:id="@+id/emergency"
             android:title="Notify Emergency" />
@@ -49,6 +55,9 @@
         android:id="@+id/group_witness"
         android:checkableBehavior="single"
         android:visible="false">
+        <item
+            android:id="@+id/witness_home"
+            android:title="Home" />
         <item
             android:id="@+id/emergency_by_witness"
             android:title="Emergency" />
