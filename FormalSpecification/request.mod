@@ -30,7 +30,7 @@ mod EMERGENCY* {
 	var SA : String -- another variable for status
 	var La : Float -- latitude of place from where the request is registered
 	var Lo : Float -- longitude of place from where the request is registered
-	var LaA : Float -- another varible for latitude
+	var LaA : Float -- another variable for latitude
 	var LoA : Float	 -- another variable for longitude
 	
 	eq addrequest (norequest,NA,LaA,LoA,SA) = allrequest(norequest,NA,LaA,LoA,SA) .
