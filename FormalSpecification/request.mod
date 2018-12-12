@@ -24,14 +24,14 @@ mod EMERGENCY* {
 	-- axioms
 	var R : Request
 	var R1 : Request
-	var N : String
-	var S : String
-	var NA : String
-	var SA : String
-	var La : Float
-	var Lo : Float
-	var LaA : Float
-	var LoA : Float	
+	var N : String  -- name of person who registered the request
+	var S : String -- status of request (sent-which is not seen by admin and seen- which is seen by admin)
+	var NA : String -- another variable for name
+	var SA : String -- another variable for status
+	var La : Float -- latitude of place from where the request is registered
+	var Lo : Float -- longitude of place from where the request is registered
+	var LaA : Float -- another varible for latitude
+	var LoA : Float	 -- another variable for longitude
 	
 	eq addrequest (norequest,NA,LaA,LoA,SA) = allrequest(norequest,NA,LaA,LoA,SA) .
 	eq addrequest (allrequest(norequest,N,La,Lo,S),N,La,Lo,S) = empty-requestadd .
